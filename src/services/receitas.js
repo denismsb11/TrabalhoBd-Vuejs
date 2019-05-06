@@ -1,20 +1,19 @@
-import { http } from './config'
+import { http } from "./config";
 
-export default	{
-
-	salvar:(receita)=>{
-		return http.post('addReceita', receita);
-  },
-    
-	atualizar:(receita)=>{
-		return http.put(receita);
+export default {
+  salvar: receita => {
+    return http.post("addReceita", receita);
   },
 
-  listar:()=>{
-		return http.get('getReceitas')
+  atualizar: receita => {
+    return http.put(receita);
   },
-    
-	apagar:(receita)=>{
-		return http.delete('receita', { data: receita })
-	}
-}
+
+  listar: () => {
+    return http.get("getReceitas");
+  },
+
+  apagar: receita => {
+    return http.delete("receita", { data: receita });
+  }
+};

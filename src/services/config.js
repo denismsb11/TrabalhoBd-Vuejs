@@ -1,5 +1,5 @@
-import axios from 'axios'
+import axios from "axios";
 
 export const http = axios.create({
-    baseURL: 'https://sistema-receitas-back.herokuapp.com/',
+  baseURL: "https://sistema-receitas-back.herokuapp.com/"
 });

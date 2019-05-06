@@ -31,8 +31,14 @@
                     </div>
                     <div class="card-content">
                       <span class="card-title activator grey-text text-darken-4">{{ receita.nome }}</span>
-                      <p class="left"><img class="icon-info-time" src="../assets/alarm-clock.png" alt="">:     {{ receita.tempo_preparo }}</p>
-                      <p class="left"><img class="icon-info-porcao" src="../assets/restaurant.png" alt="">:     {{ receita.qnt_porcoes }}</p>
+                      <p class="left">
+                        <img class="icon-info-time" src="../assets/alarm-clock.png" alt>
+                        : {{ receita.tempo_preparo }} min
+                      </p>
+                      <p class="right">
+                        <img class="icon-info-porcao" src="../assets/restaurant.png" alt>
+                        : {{ receita.qnt_porcoes }} porções
+                      </p>
                       <br>
                     </div>
                     <div class="card-reveal">
@@ -40,9 +46,11 @@
                         {{ receita.nome }}
                         <i class="material-icons right">close</i>
                       </span>
-                      <p>Passos: {{ receita.passos }}</p>
-                      <p>Tempo de Preparo: {{ receita.tempo_preparo }}</p>
-                      <p>Quantidade de Porções: {{ receita.qnt_porcoes }}</p>
+                      <ol>
+                        <li v-for="passo in receita.passos" :key="passo">{{passo}}</li>
+                      </ol>
+                      <p>Tempo de Preparo: {{ receita.tempo_preparo }} minutos</p>
+                      <p>Quantidade de Porções: {{ receita.qnt_porcoes }} porções</p>
                     </div>
                   </div>
                 </div>
@@ -70,10 +78,9 @@
 </template>
 
 <script>
-import Receita from '../services/receitas';
+import Receita from "../services/receitas";
 
 export default {
-
   data() {
     return {
       receitas: []
@@ -83,23 +90,22 @@ export default {
     Receita.listar().then(response => {
       console.log(response.data);
       this.receitas = response.data;
-    })
+    });
   }
 };
 </script>
 
 <style>
-  #card-receita {
-    width: 1000px;
-    height: 1200px;
-  }
-  .icon-info-time {
-    width: 30px;
-    height: 30px;
-  }
-    .icon-info-porcao {
-    width: 34px;
-    height: 34px;
-  }
-
+#card-receita {
+  width: 1000px;
+  height: 1200px;
+}
+.icon-info-time {
+  width: 30px;
+  height: 30px;
+}
+.icon-info-porcao {
+  width: 34px;
+  height: 34px;
+}
 </style>
