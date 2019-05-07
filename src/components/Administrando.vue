@@ -24,7 +24,7 @@
             <span class="white-text">Adicione a receita que você acredita ser incrível</span>
             <br>
             <br>
-            <router-link class="waves-effect waves-light btn" to="/admin/addareceita">Adicionar</router-link>
+            <router-link class="waves-effect waves-light btn" to="/admin/addreceita">Adicionar</router-link>
           </div>
         </li>
         <li>
@@ -35,7 +35,7 @@
             <span class="white-text">Coloque um nota para as receitas</span>
             <br>
             <br>
-            <router-link class="waves-effect waves-light btn" to="/admin/avaliarreceita">Avaliar</router-link>
+            <router-link class="waves-effect waves-light btn" to="/admin/avaliareceita">Avaliar</router-link>
           </div>
         </li>
         <li>
