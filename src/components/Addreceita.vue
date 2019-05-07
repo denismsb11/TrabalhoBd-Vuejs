@@ -12,7 +12,7 @@
     <div class="container">
       <div class="row">
         <form class="col l7 s12" @submit.prevent="salvar">
-          {{ receita.nome }}
+          {{ receita.passos }}
           {{ receita.autor }}
           {{ receita.imgs }}
           <div class="row">
@@ -97,27 +97,20 @@ export default {
     return {
       receita: {
         nome: "",
-        passos: "",
+        passos: [''],
         qnt_porcoes: "",
         tempo_preparo: "",
-        imgs: "",
-        autor: "2",
+        imgs: [''],
+        autor: 2,
         prato: ""
       }
     };
   },
   methods: {
-    /* salvar() {
-      Receita.salvar(this.receita).then(response => {
-        alert("Salvo com sucesso");
-        console.log(this.receita);
-      });
-    }
-  }*/
-  salvar() {
+    salvar() {
         console.log(this.receita);
     }
-}
+  }
 };
 </script>
 

@@ -43,4 +43,11 @@ npm install vue-resource@1.0.3 --save
 
 ```
 npm install vue-router@2.1.1 --save
+
+## Para puxar do git faça:
+git clone https://github.com/vuejs/vue.git node_modules/vue
+cd node_modules/vue
+npm install
+npm run build
+
 ```"# TrabalhoBd-Vuejs" 
