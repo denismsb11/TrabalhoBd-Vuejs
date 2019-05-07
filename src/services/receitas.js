@@ -15,5 +15,9 @@ export default {
 
   apagar: receita => {
     return http.delete("receita", { data: receita });
+  },
+
+  listarIngrediente: () => {
+    return http.get("getingredientes");
   }
 };

@@ -8,7 +8,7 @@
               <h3>
                 <i class="mdi-content-send brown-text"></i>
               </h3>
-              <h4>Recomendados do dia</h4>
+              <h4>Lista de ingredientes</h4>
               <hr>
             </div>
           </div>
@@ -21,24 +21,17 @@
           <div class="row">
             <ul>
               <li v-for="receita of receitas" :key="receita.id">
-                <div class="col s12 m6 l4 center card-receita">
+                <div class="col s12 m6 l4 center">
                   <h3>
                     <i class="mdi-content-send brown-text"></i>
                   </h3>
                   <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                      <img class="activator" :src="receita.imgs">
+                      <img class="activator image-card-size" :src="receita.img">
                     </div>
                     <div class="card-content">
                       <span class="card-title activator grey-text text-darken-4">{{ receita.nome }}</span>
-                      <p class="left">
-                        <img class="icon-info-time" src="../assets/alarm-clock.png" alt>
-                        : {{ receita.tempo_preparo }} min
-                      </p>
-                      <p class="right">
-                        <img class="icon-info-porcao" src="../assets/restaurant.png" alt>
-                        : {{ receita.qnt_porcoes }} porções
-                      </p>
+                      <p>Calorias: {{ receita.calorias }} (cal)</p>
                       <br>
                     </div>
                     <div class="card-reveal">
@@ -46,11 +39,7 @@
                         {{ receita.nome }}
                         <i class="material-icons right">close</i>
                       </span>
-                      <ol>
-                        <li v-for="passo in receita.passos" :key="passo">{{passo}}</li>
-                      </ol>
-                      <p>Tempo de Preparo: {{ receita.tempo_preparo }} minutos</p>
-                      <p>Quantidade de Porções: {{ receita.qnt_porcoes }} porções</p>
+                      <p>Calorias: {{ receita.calorias }} minutos</p>
                     </div>
                   </div>
                 </div>
@@ -87,7 +76,7 @@ export default {
     };
   },
   mounted() {
-    Receita.listar().then(response => {
+    Receita.listarIngrediente().then(response => {
       console.log(response.data);
       this.receitas = response.data;
     });
@@ -107,5 +96,9 @@ export default {
 .icon-info-porcao {
   width: 34px;
   height: 34px;
+}
+.image-card-size {
+  width: 220px;
+  height: 220px;
 }
 </style>

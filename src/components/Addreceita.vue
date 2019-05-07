@@ -39,7 +39,7 @@
           </div>
           <div class="row">
             <div class="input-field col l10 s10">
-              <input id="passos-da-receita" type="text" class="validate" v-model="receita.passos">
+              <input id="passos-da-receita" type="hidden" class="validate" name="receita.passos[]" v-model="receita.passos">
               <label for="passos-da-receita">Passos da Receita</label>
             </div>
           </div>
@@ -63,7 +63,7 @@
 
           <div class="row">
             <div class="input-field col l10 s10">
-              <input id="quantidade" type="text" class="validate" v-model="receita.imgs">
+              <input id="quantidade" type="hidden" class="validate" name="receita.imgs[]" v-model="receita.imgs">
               <label for="quantidade">Imagem</label>
             </div>
           </div>
@@ -97,10 +97,10 @@ export default {
     return {
       receita: {
         nome: "",
-        passos: [''],
+        passos: [],
         qnt_porcoes: "",
         tempo_preparo: "",
-        imgs: [''],
+        imgs: [],
         autor: 2,
         prato: ""
       }
