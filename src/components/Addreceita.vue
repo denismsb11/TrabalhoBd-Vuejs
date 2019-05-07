@@ -39,7 +39,13 @@
           </div>
           <div class="row">
             <div class="input-field col l10 s10">
-              <input id="passos-da-receita" type="hidden" class="validate" name="receita.passos[]" v-model="receita.passos">
+              <input
+                id="passos-da-receita"
+                type="text"
+                class="validate"
+                name="receita.passos[]"
+                v-model="receita.passos"
+              >
               <label for="passos-da-receita">Passos da Receita</label>
             </div>
           </div>
@@ -47,7 +53,7 @@
             <div class="input-field col l10 s10">
               <input
                 id="tempo-de-preparo"
-                type="text"
+                type="number"
                 class="validate"
                 v-model="receita.tempo_preparo"
               >
@@ -56,21 +62,27 @@
           </div>
           <div class="row">
             <div class="input-field col l10 s10">
-              <input id="quantidade" type="text" class="validate" v-model="receita.qnt_porcoes">
+              <input id="quantidade" type="number" class="validate" v-model="receita.qnt_porcoes">
               <label for="quantidade">Quantidade de porções</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col l10 s10">
-              <input id="quantidade" type="hidden" class="validate" name="receita.imgs[]" v-model="receita.imgs">
-              <label for="quantidade">Imagem</label>
+              <input
+                id="img"
+                type="text"
+                class="validate"
+                name="receita.imgs[]"
+                v-model="receita.imgs"
+              >
+              <label for="img">Imagem</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col l10 s10">
-              <input id="quantidade" type="text" class="validate" v-model="receita.prato">
+              <input id="quantidade" type="number" class="validate" v-model="receita.prato">
               <label for="quantidade">Prato de comida</label>
             </div>
           </div>
@@ -96,19 +108,24 @@ export default {
   data() {
     return {
       receita: {
-        nome: "",
-        passos: [],
-        qnt_porcoes: "",
-        tempo_preparo: "",
-        imgs: [],
-        autor: 2,
-        prato: ""
+        nome: "sd",
+        passos: "d",
+        qnt_porcoes: 1,
+        tempo_preparo: 2,
+        imgs: "[]",
+        autor: 1,
+        prato: 4
       }
     };
   },
   methods: {
     salvar() {
-        console.log(this.receita);
+      this.receita["imgs"] = [this.receita.imgs];
+      this.receita.passos = [this.receita.passos];
+      console.log(this.receita);
+      Receita.salvar(this.receita).then(response => {
+        alert("Salvo com sucesso");
+      });
     }
   }
 };

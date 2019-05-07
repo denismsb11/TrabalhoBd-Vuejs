@@ -66,6 +66,9 @@ export default {
       console.log(response.data);
       this.receitas = response.data;
     });
+  },
+  methods: {
+      
   }
 };
 </script>

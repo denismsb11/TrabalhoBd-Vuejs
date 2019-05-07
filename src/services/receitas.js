@@ -14,7 +14,7 @@ export default {
   },
 
   apagar: receita => {
-    return http.delete("receita", { data: receita });
+    return http.delete("removeReceita", { data: receita });
   },
 
   listarIngrediente: () => {
